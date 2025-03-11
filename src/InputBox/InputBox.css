@@ -13,3 +13,11 @@
     margin: 0 0 0 10px;
     padding: 0;
 }
+
+.box__input_green {
+    background-color: green;
+}
+
+.box__input_yellow {
+    background-color: yellow;
+}

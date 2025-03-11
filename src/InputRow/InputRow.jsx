@@ -1,21 +1,27 @@
 import "./InputRow.css";
 import InputBox from "../InputBox/InputBox";
 
-function InputRow({ correctWord, attemptRow, currentInputs, currentAttempt }) {
+function InputRow({ correctWord, attemptRow, currentInputs, currentAttempt, checkedAttempts }) {
   const correctWordSplit = correctWord.split("");
-  const showInputs = currentAttempt === attemptRow;
+  
+  const isActive = currentAttempt === attemptRow;
   return (
     <div className="input-row">
       <p className="deleteLater">
-        {attemptRow} {showInputs.toString()}
+        Attempt Row: {attemptRow} ----- isActive: {isActive.toString()}
       </p>
       {correctWordSplit.map((correctLetter, index) => {
         return (
           <InputBox
             key={index}
+            letterPosition={index}
             correctLetter={correctLetter}
             currentInput={currentInputs[index]}
-            showInputs={showInputs}
+            isActive={isActive}
+            attemptRow={attemptRow}
+            currentAttempt={currentAttempt}
+            checkedAttempts={checkedAttempts}
+            correctWord={correctWord}
           />
         );
       })}
