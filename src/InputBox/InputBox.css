@@ -10,14 +10,20 @@
 
 .box__input {
     font-size: 40px;
-    margin: 0 0 0 10px;
+    
+    text-align: center;
+    margin: 0;
     padding: 0;
 }
 
-.box__input_green {
+.box_green {
     background-color: green;
 }
 
-.box__input_yellow {
+.box_yellow {
     background-color: yellow;
+}
+
+.box_wrong {
+    background-color: rgb(0, 0, 0, 0.35);;
 }

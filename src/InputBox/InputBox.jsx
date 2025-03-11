@@ -7,7 +7,7 @@ function InputBox({
   isActive,
   attemptRow,
   currentAttempt,
-  checkedAttempts,
+  submissions,
   correctWord,
 }) {
   if (isActive) {
@@ -18,10 +18,10 @@ function InputBox({
     );
   }
   if (currentAttempt > attemptRow) {
-    const letter = checkedAttempts[attemptRow - 1].charAt(letterPosition);
+    const letter = submissions[attemptRow - 1].charAt(letterPosition);
     const boxClassName = `box ${
-        letter === correctLetter ? "box__input_green" : 
-        correctWord.includes(letter) ? "box__input_yellow" : ""
+        letter === correctLetter ? "box_green" : 
+        correctWord.includes(letter) ? "box_yellow" : "box_wrong"
       }`;
 
     return (

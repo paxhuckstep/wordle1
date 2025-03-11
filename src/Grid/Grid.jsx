@@ -1,7 +1,7 @@
 import InputRow from "../InputRow/InputRow";
 import "./Grid.css";
 
-function Grid({ correctWord, currentInputs, currentAttempt, checkedAttempts }) {
+function Grid({ correctWord, currentInputs, currentAttempt, submissions }) {
   const inputAttempts = [1, 2, 3, 4, 5];
   return (
     <div className="grid">
@@ -13,7 +13,7 @@ function Grid({ correctWord, currentInputs, currentAttempt, checkedAttempts }) {
             attemptRow={attempt}
             currentInputs={currentInputs}
             currentAttempt={currentAttempt}
-            checkedAttempts={checkedAttempts}
+            submissions={submissions}
           />
         );
       })}
