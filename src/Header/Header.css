@@ -1,0 +1,14 @@
+.header {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header__title {
+    margin: 0 auto;
+    position: center;
+}
+
+.header__attempts {
+    margin: 0 100px 20px auto;
+}
