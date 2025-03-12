@@ -92,7 +92,7 @@ function App() {
           currentAttempt={currentAttempt}
           submissions={submissions}
         />
-        <div className="delete__later">the correct word is {correctWord} </div>
+        <div className="delete__later">For testing you can highlight in the quotes for the answer: "<span className="delete__later-span">{correctWord}</span>" </div>
         <Popup isOpen={isOpen} isWin={isWin} correctWord={correctWord} onClick={handleResetButtonClick} />
       </div>
     </>
