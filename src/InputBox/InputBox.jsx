@@ -18,7 +18,7 @@ function InputBox({
   if (currentAttempt > attemptRow) {
     const letter = submissions[attemptRow - 1][letterPosition].letter;
     const boxClassName = `box ${
-      submissions[attemptRow - 1][letterPosition].color
+      submissions[attemptRow - 1][letterPosition].boxClass
     } `;
 
     return (
