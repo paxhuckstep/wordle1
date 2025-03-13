@@ -1,16 +1,16 @@
-// export const randomWords = [
-//   "spine",
-//   "hardship",
-//   "slide",
-//   "wife",
-//   "quantity",
-//   "champion",
-//   "reign",
-//   "provide",
-//   "study",
-//   "west",
-//   "technique",
-// ];
+// // export const randomWords = [
+// //   "spine",
+// //   "hardship",
+// //   "slide",
+// //   "wife",
+// //   "quantity",
+// //   "champion",
+// //   "reign",
+// //   "provide",
+// //   "study",
+// //   "west",
+// //   "technique",
+// // ];
 
 export const randomWords = [
   "bulbasaur","ivysaur","venusaur","charmander","charmeleon","charizard",
@@ -37,3 +37,5 @@ export const randomWords = [
   "kabutops","aerodactyl","articuno","zapdos","moltres","dratini",
   "dragonair","dragonite","mewtwo","mew"
 ];
+
+// export const randomWords = ["aaabbbcccddd"]

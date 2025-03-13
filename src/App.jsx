@@ -18,7 +18,7 @@ function App() {
       return {
         index: index,
         letter: letter,
-        isGreen: correctWord.charAt(index) === letter
+        isGreen: correctWord.charAt(index) === letter,
       };
     });
     // console.log("greenTest: ", greenTest);
@@ -27,6 +27,7 @@ function App() {
       .split("")
       .filter((letter, index) => {
         return !greenTest[index].isGreen;
+        b;
       });
 
     // console.log("correct word greenless: ", correctWordGreenless);
@@ -42,6 +43,8 @@ function App() {
         }
       }
     }
+
+    // console.log("possible yellow count: ", possibleYellowCount);
 
     const newSubmission = greenTest.map((letter, index) => {
       let isYellow = false;
@@ -61,16 +64,15 @@ function App() {
       return {
         index: index,
         letter: letter.letter,
-        boxClass:
-          letter.isGreen
-            ? "box_green"
-            : isYellow
-            ? "box_yellow"
-            : "box_wrong",
+        boxClass: letter.isGreen
+          ? "box_green"
+          : isYellow
+          ? "box_yellow"
+          : "box_wrong",
       };
     });
+    // console.log("new submission: ", newSubmission);
 
-    // console.log("newSubmission: ", newSubmission);
     setSubmissions((prev) => [...prev, newSubmission]);
     setCurrentAttempt((prev) => prev + 1);
     if (currentInputs.join("") === correctWord) {
@@ -137,7 +139,10 @@ function App() {
   return (
     <>
       <div className="app__page">
-        <Header currentAttempt={currentAttempt} onClick={handleResetButtonClick} />
+        <Header
+          currentAttempt={currentAttempt}
+          onClick={handleResetButtonClick}
+        />
         <Grid
           correctWord={correctWord}
           currentInputs={currentInputs}
