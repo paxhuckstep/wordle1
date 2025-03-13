@@ -9,6 +9,18 @@
   position: center;
 }
 
+.header__right-container {
+  margin: 0 100px 0px auto;
+}
+
 .header__attempts {
-  margin: 0 100px 20px auto;
+  margin: 0;
+}
+
+.header__reset-button{
+  width: 76px;
+  margin: 10px auto 0
+}
+.header__reset-button:hover{
+  cursor: pointer;
 }

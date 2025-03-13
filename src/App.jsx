@@ -137,7 +137,7 @@ function App() {
   return (
     <>
       <div className="app__page">
-        <Header currentAttempt={currentAttempt} />
+        <Header currentAttempt={currentAttempt} onClick={handleResetButtonClick} />
         <Grid
           correctWord={correctWord}
           currentInputs={currentInputs}
