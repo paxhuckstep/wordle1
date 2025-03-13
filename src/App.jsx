@@ -14,6 +14,78 @@ function App() {
   const [isWin, setIsWin] = useState(false);
 
   const testAnswer = () => {
+    const newSubmissionGreenTest = currentInputs.map((letter, index) => {
+      return {
+        index: index,
+        letter: letter,
+        color: correctWord.charAt(index) === letter ? "green" : "not-green",
+      };
+    });
+    console.log("newSubmissionGreenTest: ", newSubmissionGreenTest);
+    // const newSubmissionGreens = newSubmissionGreenTest.filter((letterObject) => {
+    //   return letterObject.color === "green";
+    // });
+    // console.log(newSubmissionGreens);
+
+    const correctWordGreenless = correctWord
+      .split("")
+      .filter((letter, index) => {
+        return newSubmissionGreenTest[index].color !== "green";
+      });
+
+    console.log("correct word greenless: ", correctWordGreenless);
+    // console.log("currentInputs: ", currentInputs);
+
+    // const WRONGnewSubmissionYellowTest = newSubmissionGreenTest.map((letter, index) => {
+    //   return {
+    //     index: index,
+    //     letter: letter.letter,
+    //     color: letter.color === "green" ? "green" : correctWordGreenless.join("").includes(currentInputs[index]) ? "yellow" : "wrong"
+    //   }
+    // })
+
+    // console.log("WRONGnewSubmissionYellowTest: ", WRONGnewSubmissionYellowTest)
+
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";
+    const alphabetArray = alphabet.split("");
+    let possibleYellowCount = Array(26).fill(0);
+
+    for (let i = 0; i < 26; i++) {
+      for (let j = 0; j < correctWordGreenless.length; j++) {
+        if (correctWordGreenless[j] === alphabetArray[i]) {
+          possibleYellowCount[i] = possibleYellowCount[i] + 1;
+        }
+      }
+    }
+
+    console.log("possibleYellowCount: ", possibleYellowCount);
+
+    const newSubmissionYellowTest = newSubmissionGreenTest.map(
+      (letter, index) => {
+        let isYellow = false;
+
+        for (let i = 0; i < 26; i++) {
+          if (
+            correctWordGreenless.join("").includes(letter.letter) &&
+            possibleYellowCount[i] > 0
+          ) {
+            isYellow = true;
+            possibleYellowCount[i] = possibleYellowCount[i] -1;
+          }
+        }
+
+        console.log("isYellow: ", isYellow);
+        return {
+          index: index,
+          letter: letter.letter,
+          color:
+            letter.color === "green" ? "green" : isYellow ? "yellow" : "wrong",
+        };
+      }
+    );
+
+    console.log("newSubmissionYellowTest: ", newSubmissionYellowTest);
+
     setSubmissions((prev) => [...prev, currentInputs.join("")]);
     setCurrentAttempt((prev) => prev + 1);
     if (currentInputs.join("") === correctWord) {
