@@ -18,18 +18,18 @@ function App() {
       return {
         index: index,
         letter: letter,
-        color: correctWord.charAt(index) === letter ? "green" : "",
+        isGreen: correctWord.charAt(index) === letter
       };
     });
-    // console.log("greenTest: ", greenTest);
+    console.log("greenTest: ", greenTest);
 
     const correctWordGreenless = correctWord
       .split("")
       .filter((letter, index) => {
-        return greenTest[index].color !== "green";
+        return !greenTest[index].isGreen;
       });
 
-    // console.log("correct word greenless: ", correctWordGreenless);
+    console.log("correct word greenless: ", correctWordGreenless);
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
     const alphabetArray = alphabet.split("");
@@ -48,7 +48,7 @@ function App() {
 
       for (let i = 0; i < 26; i++) {
         if (
-          letter.color !== "green" &&
+          !letter.isGreen &&
           alphabetArray[i] === letter.letter &&
           correctWordGreenless.join("").includes(letter.letter) &&
           possibleYellowCount[i] > 0
@@ -62,7 +62,7 @@ function App() {
         index: index,
         letter: letter.letter,
         boxClass:
-          letter.color === "green"
+          letter.isGreen
             ? "box_green"
             : isYellow
             ? "box_yellow"
