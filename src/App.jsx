@@ -15,9 +15,9 @@ function App() {
 
   const testAnswer = () => {
     const greenTest = currentInputs.map((letter, index) => {
-      return ({
+      return {
         isGreen: correctWord.charAt(index) === letter,
-    });
+      };
     });
     // console.log("greenTest: ", greenTest);
 
@@ -25,7 +25,6 @@ function App() {
       .split("")
       .filter((letter, index) => {
         return !greenTest[index].isGreen;
-        b;
       });
 
     // console.log("correct word greenless: ", correctWordGreenless);
@@ -37,7 +36,7 @@ function App() {
     for (let i = 0; i < 26; i++) {
       for (let j = 0; j < correctWordGreenless.length; j++) {
         if (correctWordGreenless[j] === alphabetArray[i]) {
-          possibleYellowCount[i] = possibleYellowCount[i] + 1;
+          possibleYellowCount[i]++;
         }
       }
     }
@@ -46,17 +45,13 @@ function App() {
 
     const newSubmission = currentInputs.map((letter, index) => {
       let isYellow = false;
-
-      for (let i = 0; i < 26; i++) {
-        if (
-          !greenTest[index].isGreen &&
-          alphabetArray[i] === letter &&
-          correctWordGreenless.join("").includes(letter) &&
-          possibleYellowCount[i] > 0
-        ) {
-          isYellow = true;
-          possibleYellowCount[i] = possibleYellowCount[i] - 1;
-        }
+      if (
+        !greenTest[index].isGreen &&
+        correctWordGreenless.join("").includes(letter) &&
+        possibleYellowCount[alphabetArray.indexOf(letter)] > 0
+      ) {
+        isYellow = true;
+        possibleYellowCount[alphabetArray.indexOf(letter)]--;
       }
 
       return {
@@ -70,7 +65,7 @@ function App() {
       };
     });
     // console.log("new submission: ", newSubmission);
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     setSubmissions((prev) => [...prev, newSubmission]);
     setCurrentAttempt((prev) => prev + 1);
     if (currentInputs.join("") === correctWord) {
