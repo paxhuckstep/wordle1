@@ -91,7 +91,7 @@ function App() {
 
   const handleResetButtonClick = () => {
     setCorrectWord(
-      randomWords[Math.floor(Math.random() * (randomWords.length - 1))]
+      randomWords[Math.floor(Math.random() * (randomWords.length))]
     );
     setSubmissions([]);
     setIsOpen(false);
@@ -143,14 +143,10 @@ function App() {
 
   useEffect(() => {
     setCorrectWord(
-      randomWords[Math.floor(Math.random() * (randomWords.length - 1))]
+      randomWords[Math.floor(Math.random() * (randomWords.length))]
     );
   }, []);
 
-  // useEffect(() => {
-  //   console.log(submissions);
-  //   console.log(submissions.map((submission) => submission[0].letter));
-  // }, [submissions]);
 
   return (
     <>
@@ -163,7 +159,7 @@ function App() {
           submissions={submissions}
         />
         <div className="delete__later">
-          For testing, you can highlight in the quotes for the answer: "
+          For testing, you can highlight inside the quotes for the answer: "
           <span className="delete__later-span">{correctWord}</span>"{" "}
         </div>
         <Popup
