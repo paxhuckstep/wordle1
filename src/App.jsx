@@ -21,7 +21,7 @@ function App() {
         isGreen: correctWord.charAt(index) === letter
       };
     });
-    console.log("greenTest: ", greenTest);
+    // console.log("greenTest: ", greenTest);
 
     const correctWordGreenless = correctWord
       .split("")
@@ -29,7 +29,7 @@ function App() {
         return !greenTest[index].isGreen;
       });
 
-    console.log("correct word greenless: ", correctWordGreenless);
+    // console.log("correct word greenless: ", correctWordGreenless);
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
     const alphabetArray = alphabet.split("");
