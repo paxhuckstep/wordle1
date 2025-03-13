@@ -20,9 +20,12 @@ function InputBox({
   if (currentAttempt > attemptRow) {
     const letter = submissions[attemptRow - 1].charAt(letterPosition);
     const boxClassName = `box ${
-        letter === correctLetter ? "box_green" : 
-        correctWord.includes(letter) ? "box_yellow" : "box_wrong"
-      }`;
+      letter === correctLetter
+        ? "box_green"
+        : correctWord.includes(letter)
+        ? "box_yellow"
+        : "box_wrong"
+    }`;
 
     return (
       <div className={boxClassName}>
@@ -31,11 +34,7 @@ function InputBox({
     );
   }
 
-  return (
-    <div className="box">
-      <p className="deleteLater"></p>
-    </div>
-  );
+  return <div className="box"></div>;
 }
 
 export default InputBox;
