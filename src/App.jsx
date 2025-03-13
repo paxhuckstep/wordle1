@@ -15,11 +15,9 @@ function App() {
 
   const testAnswer = () => {
     const greenTest = currentInputs.map((letter, index) => {
-      return {
-        index: index,
-        letter: letter,
+      return ({
         isGreen: correctWord.charAt(index) === letter,
-      };
+    });
     });
     // console.log("greenTest: ", greenTest);
 
@@ -46,14 +44,14 @@ function App() {
 
     // console.log("possible yellow count: ", possibleYellowCount);
 
-    const newSubmission = greenTest.map((letter, index) => {
+    const newSubmission = currentInputs.map((letter, index) => {
       let isYellow = false;
 
       for (let i = 0; i < 26; i++) {
         if (
-          !letter.isGreen &&
-          alphabetArray[i] === letter.letter &&
-          correctWordGreenless.join("").includes(letter.letter) &&
+          !greenTest[index].isGreen &&
+          alphabetArray[i] === letter &&
+          correctWordGreenless.join("").includes(letter) &&
           possibleYellowCount[i] > 0
         ) {
           isYellow = true;
@@ -63,8 +61,8 @@ function App() {
 
       return {
         index: index,
-        letter: letter.letter,
-        boxClass: letter.isGreen
+        letter: letter,
+        boxClass: greenTest[index].isGreen
           ? "box_green"
           : isYellow
           ? "box_yellow"
@@ -72,7 +70,7 @@ function App() {
       };
     });
     // console.log("new submission: ", newSubmission);
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
     setSubmissions((prev) => [...prev, newSubmission]);
     setCurrentAttempt((prev) => prev + 1);
     if (currentInputs.join("") === correctWord) {
