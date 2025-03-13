@@ -14,15 +14,15 @@ function App() {
   const [isWin, setIsWin] = useState(false);
 
   const testAnswer = () => {
-    const newSubmissionGreenTest = currentInputs.map((letter, index) => {
+    const greenTest = currentInputs.map((letter, index) => {
       return {
         index: index,
         letter: letter,
         color: correctWord.charAt(index) === letter ? "green" : "not-green",
       };
     });
-    console.log("newSubmissionGreenTest: ", newSubmissionGreenTest);
-    // const newSubmissionGreens = newSubmissionGreenTest.filter((letterObject) => {
+    console.log("greenTest: ", greenTest);
+    // const newSubmissionGreens = greenTest.filter((letterObject) => {
     //   return letterObject.color === "green";
     // });
     // console.log(newSubmissionGreens);
@@ -30,13 +30,13 @@ function App() {
     const correctWordGreenless = correctWord
       .split("")
       .filter((letter, index) => {
-        return newSubmissionGreenTest[index].color !== "green";
+        return greenTest[index].color !== "green";
       });
 
     console.log("correct word greenless: ", correctWordGreenless);
     // console.log("currentInputs: ", currentInputs);
 
-    // const WRONGnewSubmissionYellowTest = newSubmissionGreenTest.map((letter, index) => {
+    // const WRONGnewSubmissionYellowTest = greenTest.map((letter, index) => {
     //   return {
     //     index: index,
     //     letter: letter.letter,
@@ -60,12 +60,13 @@ function App() {
 
     console.log("possibleYellowCount: ", possibleYellowCount);
 
-    const newSubmissionYellowTest = newSubmissionGreenTest.map(
+    const newSubmission = greenTest.map(
       (letter, index) => {
         let isYellow = false;
 
         for (let i = 0; i < 26; i++) {
           if (
+            letter.color !== "green" &&
             correctWordGreenless.join("").includes(letter.letter) &&
             possibleYellowCount[i] > 0
           ) {
@@ -84,7 +85,7 @@ function App() {
       }
     );
 
-    console.log("newSubmissionYellowTest: ", newSubmissionYellowTest);
+    console.log("newSubmission: ", newSubmission);
 
     setSubmissions((prev) => [...prev, currentInputs.join("")]);
     setCurrentAttempt((prev) => prev + 1);
