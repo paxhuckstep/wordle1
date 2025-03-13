@@ -12,4 +12,4 @@
 //   "technique",
 // ];
 
-export const randomWords = ["lesson"];
+export const randomWords = ["slide"];

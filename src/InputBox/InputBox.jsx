@@ -18,14 +18,8 @@ function InputBox({
     );
   }
   if (currentAttempt > attemptRow) {
-    const letter = submissions[attemptRow - 1].charAt(letterPosition);
-    const boxClassName = `box ${
-      letter === correctLetter
-        ? "box_green"
-        : correctWord.includes(letter)
-        ? "box_yellow"
-        : "box_wrong"
-    }`;
+    const letter = submissions[attemptRow - 1][letterPosition].letter;
+    const boxClassName = `box ${submissions[attemptRow -1][letterPosition].color} `;
 
     return (
       <div className={boxClassName}>

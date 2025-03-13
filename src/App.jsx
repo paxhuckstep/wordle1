@@ -18,33 +18,18 @@ function App() {
       return {
         index: index,
         letter: letter,
-        color: correctWord.charAt(index) === letter ? "green" : "not-green",
+        color: correctWord.charAt(index) === letter ? "box_green" : "not-green",
       };
     });
-    console.log("greenTest: ", greenTest);
-    // const newSubmissionGreens = greenTest.filter((letterObject) => {
-    //   return letterObject.color === "green";
-    // });
-    // console.log(newSubmissionGreens);
+    // console.log("greenTest: ", greenTest);
 
     const correctWordGreenless = correctWord
       .split("")
       .filter((letter, index) => {
-        return greenTest[index].color !== "green";
+        return greenTest[index].color !== "box_green";
       });
 
     console.log("correct word greenless: ", correctWordGreenless);
-    // console.log("currentInputs: ", currentInputs);
-
-    // const WRONGnewSubmissionYellowTest = greenTest.map((letter, index) => {
-    //   return {
-    //     index: index,
-    //     letter: letter.letter,
-    //     color: letter.color === "green" ? "green" : correctWordGreenless.join("").includes(currentInputs[index]) ? "yellow" : "wrong"
-    //   }
-    // })
-
-    // console.log("WRONGnewSubmissionYellowTest: ", WRONGnewSubmissionYellowTest)
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
     const alphabetArray = alphabet.split("");
@@ -60,34 +45,42 @@ function App() {
 
     console.log("possibleYellowCount: ", possibleYellowCount);
 
-    const newSubmission = greenTest.map(
-      (letter, index) => {
-        let isYellow = false;
+    const newSubmission = greenTest.map((letter, index) => {
+      let isYellow = false;
 
-        for (let i = 0; i < 26; i++) {
-          if (
-            letter.color !== "green" &&
-            correctWordGreenless.join("").includes(letter.letter) &&
-            possibleYellowCount[i] > 0
-          ) {
-            isYellow = true;
-            possibleYellowCount[i] = possibleYellowCount[i] -1;
-          }
+      for (let i = 0; i < 26; i++) {
+        // console.log(  letter.color !== "box_green",
+        //   correctWordGreenless.join("").includes(letter.letter),
+        //   possibleYellowCount[i] > 0)
+        if (
+          letter.color !== "box_green" &&
+          alphabetArray[i] === letter.letter &&
+          correctWordGreenless.join("").includes(letter.letter) &&
+          possibleYellowCount[i] > 0
+        ) {
+          isYellow = true;
+          possibleYellowCount[i] = possibleYellowCount[i] - 1;
+          console.log(letter.letter, " is running, new possibleYellowCount: ", possibleYellowCount);
         }
-
-        console.log("isYellow: ", isYellow);
-        return {
-          index: index,
-          letter: letter.letter,
-          color:
-            letter.color === "green" ? "green" : isYellow ? "yellow" : "wrong",
-        };
       }
-    );
+
+      
+
+      console.log(letter.letter, "isYellow: ", isYellow);
+      return {
+        index: index,
+        letter: letter.letter,
+        color:
+          letter.color === "box_green"
+            ? "box_green"
+            : isYellow
+            ? "box_yellow"
+            : "box_wrong",
+      };
+    });
 
     console.log("newSubmission: ", newSubmission);
-
-    setSubmissions((prev) => [...prev, currentInputs.join("")]);
+    setSubmissions((prev) => [...prev, newSubmission]);
     setCurrentAttempt((prev) => prev + 1);
     if (currentInputs.join("") === correctWord) {
       setIsOpen(true);
@@ -153,6 +146,11 @@ function App() {
       randomWords[Math.floor(Math.random() * (randomWords.length - 1))]
     );
   }, []);
+
+  // useEffect(() => {
+  //   console.log(submissions);
+  //   console.log(submissions.map((submission) => submission[0].letter));
+  // }, [submissions]);
 
   return (
     <>
