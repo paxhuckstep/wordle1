@@ -2,13 +2,11 @@ import "./InputBox.css";
 
 function InputBox({
   letterPosition,
-  correctLetter,
   currentInput,
   isActive,
   attemptRow,
   currentAttempt,
   submissions,
-  correctWord,
 }) {
   if (isActive) {
     return (
@@ -19,7 +17,9 @@ function InputBox({
   }
   if (currentAttempt > attemptRow) {
     const letter = submissions[attemptRow - 1][letterPosition].letter;
-    const boxClassName = `box ${submissions[attemptRow -1][letterPosition].color} `;
+    const boxClassName = `box ${
+      submissions[attemptRow - 1][letterPosition].color
+    } `;
 
     return (
       <div className={boxClassName}>

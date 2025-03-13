@@ -11,5 +11,3 @@ export const randomWords = [
   "west",
   "technique",
 ];
-
-// export const randomWords = ["slide"];

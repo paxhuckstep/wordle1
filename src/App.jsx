@@ -29,7 +29,7 @@ function App() {
         return greenTest[index].color !== "box_green";
       });
 
-    console.log("correct word greenless: ", correctWordGreenless);
+    // console.log("correct word greenless: ", correctWordGreenless);
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
     const alphabetArray = alphabet.split("");
@@ -43,15 +43,10 @@ function App() {
       }
     }
 
-    console.log("possibleYellowCount: ", possibleYellowCount);
-
     const newSubmission = greenTest.map((letter, index) => {
       let isYellow = false;
 
       for (let i = 0; i < 26; i++) {
-        // console.log(  letter.color !== "box_green",
-        //   correctWordGreenless.join("").includes(letter.letter),
-        //   possibleYellowCount[i] > 0)
         if (
           letter.color !== "box_green" &&
           alphabetArray[i] === letter.letter &&
@@ -60,13 +55,9 @@ function App() {
         ) {
           isYellow = true;
           possibleYellowCount[i] = possibleYellowCount[i] - 1;
-          console.log(letter.letter, " is running, new possibleYellowCount: ", possibleYellowCount);
         }
       }
 
-      
-
-      console.log(letter.letter, "isYellow: ", isYellow);
       return {
         index: index,
         letter: letter.letter,
@@ -79,7 +70,7 @@ function App() {
       };
     });
 
-    console.log("newSubmission: ", newSubmission);
+    // console.log("newSubmission: ", newSubmission);
     setSubmissions((prev) => [...prev, newSubmission]);
     setCurrentAttempt((prev) => prev + 1);
     if (currentInputs.join("") === correctWord) {
@@ -90,9 +81,7 @@ function App() {
   };
 
   const handleResetButtonClick = () => {
-    setCorrectWord(
-      randomWords[Math.floor(Math.random() * (randomWords.length))]
-    );
+    setCorrectWord(randomWords[Math.floor(Math.random() * randomWords.length)]);
     setSubmissions([]);
     setIsOpen(false);
     setIsWin(false);
@@ -142,11 +131,8 @@ function App() {
   }, [currentInputs, correctWord]);
 
   useEffect(() => {
-    setCorrectWord(
-      randomWords[Math.floor(Math.random() * (randomWords.length))]
-    );
+    setCorrectWord(randomWords[Math.floor(Math.random() * randomWords.length)]);
   }, []);
-
 
   return (
     <>
