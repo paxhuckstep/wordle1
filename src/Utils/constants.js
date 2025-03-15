@@ -1,18 +1,18 @@
-// // export const randomWords = [
-// //   "spine",
-// //   "hardship",
-// //   "slide",
-// //   "wife",
-// //   "quantity",
-// //   "champion",
-// //   "reign",
-// //   "provide",
-// //   "study",
-// //   "west",
-// //   "technique",
-// // ];
-
 export const randomWords = [
+  "spine",
+  "hardship",
+  "slide",
+  "wife",
+  "quantity",
+  "champion",
+  "reign",
+  "provide",
+  "study",
+  "west",
+  "technique",
+];
+
+export const originalPokemon = [
   "bulbasaur","ivysaur","venusaur","charmander","charmeleon","charizard",
   "squirtle","wartortle","blastoise","caterpie","metapod","butterfree",
   "weedle","kakuna","beedrill","pidgey","pidgeotto","pidgeot","rattata",
@@ -38,4 +38,27 @@ export const randomWords = [
   "dragonair","dragonite","mewtwo","mew"
 ];
 
+export const fiveLetters = [
+  'apple', 'bliss', 'crane', 'daisy', 'eagle', 'fable', 'glint', 'harpy', 'ideal', 'joker',
+  'kudos', 'latch', 'mirth', 'noble', 'ocean', 'piano', 'quilt', 'raven', 'siren', 'table',
+  'umbra', 'vigor', 'whale', 'xenon', 'yacht', 'zebra', 'amend', 'brisk', 'cider', 'drift',
+  'ember', 'flint', 'grasp', 'hover', 'inbox', 'jolly', 'kneel', 'lunar', 'mango', 'notch',
+  'orbit', 'plumb', 'quirk', 'rally', 'shiny', 'toast', 'undue', 'vivid', 'wrist', 'xylem',
+  'youth', 'zesty', 'align', 'bloom', 'clash', 'dwell', 'evoke', 'frown', 'giddy', 'hound',
+  'imply', 'judge', 'knock', 'lodge', 'mimic', 'nudge', 'oxide', 'plume', 'quota', 'rouge',
+  'swoop', 'trend', 'unite', 'vouch', 'woven', 'xerox', 'yield', 'zoomy', 'adore', 'binge',
+  'charm', 'delve', 'elbow', 'fancy', 'gloom', 'haste', 'infer', 'jumpy', 'knead', 'light',
+  'motto', 'nerdy', 'onset', 'prone', 'quake', 'rumor', 'slope', 'tumor', 'upend', 'vowel'
+];
+
+export const sixLetters = ['abacus', 'beacon', 'cactus', 'dazzle', 'eclipse', 'famine', 'galaxy', 'hunger', 'injury', 'jungle',
+  'kidnap', 'lawful', 'mantle', 'napkin', 'object', 'packet', 'quaint', 'ransom', 'saddle', 'tackle',
+  'uphold', 'vacuum', 'wealth', 'xenial', 'yellow', 'zephyr', 'admire', 'breeze', 'cobweb', 'danger',
+  'effort', 'fossil', 'gospel', 'hamlet', 'impact', 'jigsaw', 'kindle', 'launch', 'mellow', 'narrow',
+  'outlet', 'pebble', 'quench', 'retail', 'sizzle', 'temple', 'unfold', 'valley', 'wander', 'xyloid',
+  'yonder', 'zigzag', 'abound', 'buckle', 'crunch', 'defend', 'esteem', 'fumble', 'glisten', 'helmet',
+  'inform', 'jargon', 'kitten', 'ladder', 'muffin', 'neatly', 'outcry', 'puddle', 'quiver', 'rescue',
+  'sprint', 'tundra', 'upbeat', 'vermin', 'whimsy', 'xyloma', 'yonder', 'zodiac', 'arcade', 'banish',
+  'cipher', 'divine', 'enfold', 'frugal', 'glitch', 'honest', 'invade', 'jumble', 'kettle', 'laptop',
+  'mentor', 'nugget', 'optics', 'plunge', 'riddle', 'socket', 'thrive', 'utmost', 'vortex', 'writer'];
 // export const randomWords = ["aaabbbcccddd"]

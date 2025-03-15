@@ -1,6 +1,6 @@
 .sidebar {
     width: 250px;
     margin-right: 20px;
-    background-color: pink;
+    /* background-color: pink; */
     flex-shrink: 0;
 }

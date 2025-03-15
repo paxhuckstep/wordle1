@@ -13,6 +13,26 @@ function App() {
   const [submissions, setSubmissions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isWin, setIsWin] = useState(false);
+  const [selectedWords, setSelectedWords] = useState([]);
+  const [isGrid, setIsGrid] = useState(false);
+
+  const handleToggleSwitchChange = (toggleArray) => {
+    // console.log(toggleArray);
+    const isAlreadySelected = toggleArray.every((word) => {
+      return selectedWords.includes(word);
+    });
+    console.log(isAlreadySelected);
+    if (isAlreadySelected) {
+      setSelectedWords((prev) =>
+        prev.filter((word) => {
+          return !toggleArray.includes(word);
+        })
+      );
+    } else {
+      setSelectedWords((prev) => prev.concat(toggleArray));
+    }
+    console.log(selectedWords);
+  };
 
   const testAnswer = () => {
     const correctWordGreenless = correctWord
@@ -65,12 +85,20 @@ function App() {
   };
 
   const handleResetButtonClick = () => {
-    setCorrectWord(randomWords[Math.floor(Math.random() * randomWords.length)]);
+    setCorrectWord(
+      selectedWords[Math.floor(Math.random() * selectedWords.length)]
+    );
     setSubmissions([]);
     setIsOpen(false);
     setIsWin(false);
     setCurrentAttempt(1);
     setCurrentInputs([]);
+    // console.log(selectedWords);
+    if (selectedWords.length > 0) {
+      setIsGrid(true);
+    } else {
+      setIsGrid(false);
+    }
   };
 
   useEffect(() => {
@@ -120,7 +148,8 @@ function App() {
   }, [currentInputs, correctWord, isOpen]);
 
   useEffect(() => {
-    setCorrectWord(randomWords[Math.floor(Math.random() * randomWords.length)]);
+    // setCorrectWord(randomWords[Math.floor(Math.random() * randomWords.length)]);
+    handleResetButtonClick();
   }, []);
 
   return (
@@ -131,8 +160,9 @@ function App() {
           onClick={handleResetButtonClick}
         />
         <div className="app__body">
-          <SideBar />
+          <SideBar handleToggleSwitchChange={handleToggleSwitchChange} />
           <Grid
+            isGrid={isGrid}
             correctWord={correctWord}
             currentInputs={currentInputs}
             currentAttempt={currentAttempt}
