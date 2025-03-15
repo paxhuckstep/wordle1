@@ -14,19 +14,11 @@ function App() {
   const [isWin, setIsWin] = useState(false);
 
   const testAnswer = () => {
-    const greenTest = currentInputs.map((letter, index) => {
-      return {
-        isGreen: correctWord.charAt(index) === letter,
-      };
-    });
-    // console.log("greenTest: ", greenTest);
-
     const correctWordGreenless = correctWord
       .split("")
       .filter((letter, index) => {
-        return !greenTest[index].isGreen;
+        return currentInputs[index] !== letter;
       });
-
     // console.log("correct word greenless: ", correctWordGreenless);
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -40,13 +32,13 @@ function App() {
         }
       }
     }
-
     // console.log("possible yellow count: ", possibleYellowCount);
 
     const newSubmission = currentInputs.map((letter, index) => {
       let isYellow = false;
       if (
-        !greenTest[index].isGreen &&
+        // !greenTest[index].isGreen &&
+        letter !== correctWord.charAt(index) &&
         correctWordGreenless.join("").includes(letter) &&
         possibleYellowCount[alphabetArray.indexOf(letter)] > 0
       ) {
@@ -57,11 +49,12 @@ function App() {
       return {
         index: index,
         letter: letter,
-        boxClass: greenTest[index].isGreen
-          ? "box_green"
-          : isYellow
-          ? "box_yellow"
-          : "box_wrong",
+        boxClass:
+          letter === correctWord.charAt(index) //greenTest[index].isGreen
+            ? "box_green"
+            : isYellow
+            ? "box_yellow"
+            : "box_wrong",
       };
     });
     // console.log("new submission: ", newSubmission);
@@ -100,9 +93,14 @@ function App() {
       }
 
       if (event.key == "Enter") {
+        if (isOpen) {
+          handleResetButtonClick();
+        }
+
         if (currentInputs.length === correctWord.length) {
           testAnswer();
         }
+
         return;
       }
 
@@ -123,7 +121,7 @@ function App() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [currentInputs, correctWord]);
+  }, [currentInputs, correctWord, isOpen]);
 
   useEffect(() => {
     setCorrectWord(randomWords[Math.floor(Math.random() * randomWords.length)]);
