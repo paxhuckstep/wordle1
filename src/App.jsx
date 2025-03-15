@@ -25,19 +25,14 @@ function App() {
     const alphabetArray = alphabet.split("");
     let possibleYellowCount = Array(26).fill(0);
 
-    for (let i = 0; i < 26; i++) {
-      for (let j = 0; j < correctWordGreenless.length; j++) {
-        if (correctWordGreenless[j] === alphabetArray[i]) {
-          possibleYellowCount[i]++;
-        }
-      }
-    }
+    correctWordGreenless.forEach((letter) => {
+      possibleYellowCount[alphabetArray.indexOf(letter)]++;
+    });
     // console.log("possible yellow count: ", possibleYellowCount);
 
     const newSubmission = currentInputs.map((letter, index) => {
       let isYellow = false;
       if (
-        // !greenTest[index].isGreen &&
         letter !== correctWord.charAt(index) &&
         correctWordGreenless.join("").includes(letter) &&
         possibleYellowCount[alphabetArray.indexOf(letter)] > 0
@@ -50,7 +45,7 @@ function App() {
         index: index,
         letter: letter,
         boxClass:
-          letter === correctWord.charAt(index) //greenTest[index].isGreen
+          letter === correctWord.charAt(index)
             ? "box_green"
             : isYellow
             ? "box_yellow"
