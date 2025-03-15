@@ -5,7 +5,7 @@
   border: 2px solid purple;
   position: absolute;
   z-index: 99;
-  top: 110%;
+  top: 600px;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;

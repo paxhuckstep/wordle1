@@ -4,6 +4,7 @@ import Grid from "./Grid/Grid";
 import { randomWords } from "./Utils/constants";
 import Header from "./Header/Header";
 import Popup from "./Popup/Popup";
+import SideBar from "./SideBar/SideBar";
 
 function App() {
   const [correctWord, setCorrectWord] = useState("");
@@ -124,20 +125,23 @@ function App() {
 
   return (
     <>
-      <div className="app__page">
+      <div className="app">
         <Header
           currentAttempt={currentAttempt}
           onClick={handleResetButtonClick}
         />
-        <Grid
-          correctWord={correctWord}
-          currentInputs={currentInputs}
-          currentAttempt={currentAttempt}
-          submissions={submissions}
-        />
-        <div className="delete__later">
-          For testing, you can highlight inside the quotes for the answer: "
-          <span className="delete__later-span">{correctWord}</span>"{" "}
+        <div className="app__body">
+          <SideBar />
+          <Grid
+            correctWord={correctWord}
+            currentInputs={currentInputs}
+            currentAttempt={currentAttempt}
+            submissions={submissions}
+          />
+          <div className="delete__later">
+            For testing, you can highlight inside the quotes for the answer: "
+            <span className="delete__later-span">{correctWord}</span>"{" "}
+          </div>
         </div>
         <Popup
           isOpen={isOpen}

@@ -1,13 +1,26 @@
-.app__page {
+.app {
   display: flex;
   flex-direction: column;
   position: relative;
+  align-items: center;
+}
+
+.app__body {
+  display: flex;
+  position: relative;
+  /* justify-content: space-between; */
+  padding: 20px;
+  flex: 1;
+  width: 100%;
 }
 
 .delete__later {
   margin: 80px auto;
   font-size: 20px;
   color: #000;
+  position: absolute;
+  right: 25%;
+  top: 300px;
 }
 
 .delete__later-span {
