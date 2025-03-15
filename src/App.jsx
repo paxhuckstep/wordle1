@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Grid from "./Grid/Grid";
-import { randomWords } from "./Utils/constants";
 import Header from "./Header/Header";
 import Popup from "./Popup/Popup";
 import SideBar from "./SideBar/SideBar";
@@ -21,7 +20,7 @@ function App() {
     const isAlreadySelected = toggleArray.every((word) => {
       return selectedWords.includes(word);
     });
-    console.log(isAlreadySelected);
+    // console.log(isAlreadySelected);
     if (isAlreadySelected) {
       setSelectedWords((prev) =>
         prev.filter((word) => {
@@ -31,7 +30,7 @@ function App() {
     } else {
       setSelectedWords((prev) => prev.concat(toggleArray));
     }
-    console.log(selectedWords);
+    // console.log(selectedWords);
   };
 
   const testAnswer = () => {
@@ -148,7 +147,6 @@ function App() {
   }, [currentInputs, correctWord, isOpen]);
 
   useEffect(() => {
-    // setCorrectWord(randomWords[Math.floor(Math.random() * randomWords.length)]);
     handleResetButtonClick();
   }, []);
 
