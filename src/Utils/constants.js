@@ -61,4 +61,16 @@ export const sixLetters = ['abacus', 'beacon', 'cactus', 'dazzle', 'eclipse', 'f
   'sprint', 'tundra', 'upbeat', 'vermin', 'whimsy', 'xyloma', 'yonder', 'zodiac', 'arcade', 'banish',
   'cipher', 'divine', 'enfold', 'frugal', 'glitch', 'honest', 'invade', 'jumble', 'kettle', 'laptop',
   'mentor', 'nugget', 'optics', 'plunge', 'riddle', 'socket', 'thrive', 'utmost', 'vortex', 'writer'];
-// export const randomWords = ["aaabbbcccddd"]
+
+  export const stateCapitals = [
+    "montgomery", "juneau", "phoenix", "littlerock", "sacramento",
+    "denver", "hartford", "dover", "tallahassee", "atlanta",
+    "honolulu", "boise", "springfield", "indianapolis", "desmoines",
+    "topeka", "frankfort", "batonrouge", "augusta", "annapolis",
+    "boston", "lansing", "stpaul", "jackson", "jeffersoncity",
+    "helena", "lincoln", "carsoncity", "concord", "trenton",
+    "santafe", "albany", "raleigh", "bismarck", "columbus",
+    "oklahomacity", "salem", "harrisburg", "providen", "columbia",
+    "pierre", "nashville", "austin", "saltlakecity", "montpelier",
+    "richmond", "olympia", "charleston", "madison", "cheyenne"
+  ];

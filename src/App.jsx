@@ -14,6 +14,10 @@ function App() {
   const [isWin, setIsWin] = useState(false);
   const [selectedWords, setSelectedWords] = useState([]);
   const [isGrid, setIsGrid] = useState(false);
+  const [remainingLetters, setRemainingLetters] = useState("");
+
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const alphabetArray = alphabet.split("");
 
   const handleToggleSwitchChange = (toggleArray) => {
     // console.log(toggleArray);
@@ -41,8 +45,6 @@ function App() {
       });
     // console.log("correct word greenless: ", correctWordGreenless);
 
-    const alphabet = "abcdefghijklmnopqrstuvwxyz";
-    const alphabetArray = alphabet.split("");
     let possibleYellowCount = Array(26).fill(0);
 
     correctWordGreenless.forEach((letter) => {
@@ -107,6 +109,27 @@ function App() {
   }, [currentAttempt]);
 
   useEffect(() => {
+    console.log("all submissions: ", submissions);
+
+    const usedLetters = submissions.flatMap((submission) => {
+      return submission.map((input) => {
+        return input.letter;
+      });
+    });
+    console.log("usedLetters: ", usedLetters);
+
+    setRemainingLetters(
+      alphabetArray.filter((letter) => {
+        return !usedLetters.includes(letter);
+      }).join(" ")
+    );
+  }, [submissions]);
+
+  useEffect(() => {
+    // console.log(remainingLetters.join(" "));
+  }, [remainingLetters]);
+
+  useEffect(() => {
     const handleKeyDown = (event) => {
       const isLetter = /[a-z]$/i.test(event.key);
 
@@ -156,6 +179,7 @@ function App() {
         <Header
           currentAttempt={currentAttempt}
           onClick={handleResetButtonClick}
+          remainingLetters={remainingLetters}
         />
         <div className="app__body">
           <SideBar handleToggleSwitchChange={handleToggleSwitchChange} />
@@ -168,7 +192,7 @@ function App() {
           />
           <div className="delete__later">
             For testing, you can highlight inside the quotes for the answer: "
-            <span className="delete__later-span">{correctWord}</span>"{" "}
+            <span className="delete__later-span">{correctWord}</span>"
           </div>
         </div>
         <Popup

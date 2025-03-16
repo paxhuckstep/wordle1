@@ -1,5 +1,5 @@
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-import { fiveLetters, originalPokemon, sixLetters } from "../Utils/constants";
+import { fiveLetters, originalPokemon, sixLetters, stateCapitals } from "../Utils/constants";
 import "./SideBar.css";
 
 function SideBar({ handleToggleSwitchChange }) {
@@ -20,6 +20,11 @@ function SideBar({ handleToggleSwitchChange }) {
         toggleTitle={"Original 151 pokemon"}
         handleToggleSwitchChange={handleToggleSwitchChange}
         toggleArray={originalPokemon}
+      />
+          <ToggleSwitch
+        toggleTitle={"State Capitals"}
+        handleToggleSwitchChange={handleToggleSwitchChange}
+        toggleArray={stateCapitals}
       />
     </div>
   );
