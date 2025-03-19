@@ -8,34 +8,39 @@ import {
 } from "../Utils/constants";
 import "./SideBar.css";
 
-function SideBar({ handleToggleSwitchChange }) {
+function SideBar({ addCategory, removeCategory }) {
   return (
     <div className="sidebar">
-      <h3 className="sidebar__title">Catagories</h3>
+      <h3 className="sidebar__title">Categories</h3>
       <ToggleSwitch
-        toggleTitle={"5 letter words"}
-        handleToggleSwitchChange={handleToggleSwitchChange}
-        toggleArray={fiveLetters}
+        categoryTitle={"5 letter words"}
+        addCategory={addCategory}
+        removeCategory={removeCategory}
+        categoryArray={fiveLetters}
       />
       <ToggleSwitch
-        toggleTitle={"6 letter words"}
-        handleToggleSwitchChange={handleToggleSwitchChange}
-        toggleArray={sixLetters}
+        categoryTitle={"6 letter words"}
+        addCategory={addCategory}
+        removeCategory={removeCategory}
+        categoryArray={sixLetters}
       />
       <ToggleSwitch
-        toggleTitle={"Original 151 pokemon"}
-        handleToggleSwitchChange={handleToggleSwitchChange}
-        toggleArray={originalPokemon}
+        categoryTitle={"Original 151 pokemon"}
+        addCategory={addCategory}
+        removeCategory={removeCategory}
+        categoryArray={originalPokemon}
       />
       <ToggleSwitch
-        toggleTitle={"US States"}
-        handleToggleSwitchChange={handleToggleSwitchChange}
-        toggleArray={usStates}
+        categoryTitle={"US States"}
+        addCategory={addCategory}
+        removeCategory={removeCategory}
+        categoryArray={usStates}
       />
       <ToggleSwitch
-        toggleTitle={"State Capitals"}
-        handleToggleSwitchChange={handleToggleSwitchChange}
-        toggleArray={stateCapitals}
+        categoryTitle={"State Capitals"}
+        addCategory={addCategory}
+        removeCategory={removeCategory}
+        categoryArray={stateCapitals}
       />
     </div>
   );

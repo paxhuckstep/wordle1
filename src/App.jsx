@@ -19,24 +19,16 @@ function App() {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   const alphabetArray = alphabet.split("");
 
-  const handleToggleSwitchChange = (toggleArray) => {
-    // console.log(toggleArray);
-    const isAlreadySelected = toggleArray.every((word) => {
-      return selectedWords.includes(word);
-    });
-    // console.log(isAlreadySelected);
-    if (isAlreadySelected) {
-      setSelectedWords((prev) =>
-        prev.filter((word) => {
-          return !toggleArray.includes(word);
-        })
-      );
-    } else {
-      setSelectedWords((prev) => prev.concat(toggleArray));
-    }
-    // console.log(selectedWords);
+  const addCategory = (categoryArray) => {
+    setSelectedWords((prev) => prev.concat(categoryArray));
   };
-
+  const removeCategory = (categoryArray) => {
+    setSelectedWords((prev) =>
+      prev.filter((word) => {
+        return !categoryArray.includes(word);
+      })
+    );
+  };
   const testAnswer = () => {
     const correctWordGreenless = correctWord
       .split("")
@@ -94,7 +86,6 @@ function App() {
     setIsWin(false);
     setCurrentAttempt(1);
     setCurrentInputs([]);
-    // console.log(selectedWords);
     if (selectedWords.length > 0) {
       setIsGrid(true);
     } else {
@@ -168,6 +159,10 @@ function App() {
     handleResetButtonClick();
   }, []);
 
+  useEffect(() => {
+   console.log(selectedWords)
+  }, [selectedWords]);
+
   return (
     <>
       <div className="app">
@@ -177,7 +172,10 @@ function App() {
           remainingLetters={remainingLetters}
         />
         <div className="app__body">
-          <SideBar handleToggleSwitchChange={handleToggleSwitchChange} />
+          <SideBar
+            addCategory={addCategory}
+            removeCategory={removeCategory}
+          />
           <Grid
             isGrid={isGrid}
             correctWord={correctWord}

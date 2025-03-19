@@ -1,14 +1,31 @@
+import { useState } from "react";
 import "./ToggleSwitch.css";
 
-function ToggleSwitch({ toggleTitle, handleToggleSwitchChange, toggleArray }) {
-  const onChange = () => handleToggleSwitchChange(toggleArray);
+function ToggleSwitch({
+  categoryTitle,
+  addCategory,
+  removeCategory,
+  categoryArray,
+}) {
+  const [isChecked, setIsChecked] = useState(false);
 
+  const onChange = (event) => {
+    const checked = event.target.checked;
+    setIsChecked(checked);
+
+    if (checked) {
+      addCategory(categoryArray);
+    } else {
+      removeCategory(categoryArray);
+    }
+  };
   return (
     <>
-      <p className="toggle-switch__title">{toggleTitle}</p>
+      <p className="toggle-switch__title">{categoryTitle}</p>
       <label className="toggle-switch__switch">
         <input
           onChange={onChange}
+          checked={isChecked}
           type="checkbox"
           className="toggle-switch__checkbox"
         />
