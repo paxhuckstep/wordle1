@@ -13,29 +13,31 @@ export const randomWords = [
 ];
 
 export const originalPokemon = [
-  "bulbasaur","ivysaur","venusaur","charmander","charmeleon","charizard",
-  "squirtle","wartortle","blastoise","caterpie","metapod","butterfree",
-  "weedle","kakuna","beedrill","pidgey","pidgeotto","pidgeot","rattata",
-  "raticate","spearow","fearow","ekans","arbok","pikachu","raichu",
-  "sandshrew","sandslash","nidoranf","nidorina","nidoqueen","nidoranm",
-  "nidorino","nidoking","clefairy","clefable","vulpix","ninetales",
-  "jigglypuff","wigglytuff","zubat","golbat","oddish","gloom","vileplume",
-  "paras","parasect","venonat","venomoth","diglett","dugtrio","meowth",
-  "persian","psyduck","golduck","mankey","primeape","growlithe","arcanine",
-  "polywag","polywhirl","polywrath","abra","kadabra","alakazam","machop",
-  "machoke","machamp","bellsprout","weepinbell","victreebel","tentacool",
-  "tentacruel","geodude","graveler","golem","ponyta","rapidash","slowpoke",
-  "slowbro","magnemite","magneton","farfetchd","doduo","dodrio","seel",
-  "dewgong","grimer","muk","shellder","cloyster","gastly","haunter",
-  "gengar","onix","drowzee","hypno","krabby","kingler","voltorb",
-  "electrode","exeggcute","exeggutor","cubone","marowak","hitmonlee",
-  "hitmonchan","lickitung","koffing","weezing","rhyhorn","rhydon",
-  "chansey","tangela","kangaskhan","horsea","seadra","goldeen","seaking",
-  "staryu","starmie","mrmime","scyther","jynx","electabuzz","magmar",
-  "pinsir","tauros","magikarp","gyarados","lapras","ditto","eevee",
-  "vaporeon","jolteon","flareon","porygon","omanyte","omastar","kabuto",
-  "kabutops","aerodactyl","articuno","zapdos","moltres","dratini",
-  "dragonair","dragonite","mewtwo","mew"
+  "bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard",
+  "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree",
+  "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot",
+  "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", 
+  "pikachu", "raichu", "sandshrew", "sandslash", "nidoranf", "nidorina",
+  "nidoqueen", "nidoranm", "nidorino", "nidoking", "clefairy", "clefable",
+  "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat",
+  "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth",
+  "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck",
+  "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl",
+  "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp",
+  "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel",
+  "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro",
+  "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong",
+  "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar",
+  "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode",
+  "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan",
+  "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", 
+  "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking",
+  "staryu", "starmie", "mrmime", "scyther", "jynx", "electabuzz",
+  "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras",
+  "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon",
+  "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax",
+  "articuno", "zapdos", "moltres", "dratini", "dragonair", "dragonite",
+  "mewtwo", "mew"
 ];
 
 export const fiveLetters = [
@@ -73,4 +75,16 @@ export const sixLetters = ['abacus', 'beacon', 'cactus', 'dazzle', 'eclipse', 'f
     "oklahomacity", "salem", "harrisburg", "providen", "columbia",
     "pierre", "nashville", "austin", "saltlakecity", "montpelier",
     "richmond", "olympia", "charleston", "madison", "cheyenne"
+  ];
+
+  export const usStates = [
+    "alabama", "alaska", "arizona", "arkansas", "california", "colorado",
+    "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho",
+    "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana",
+    "maine", "maryland", "massachusetts", "michigan", "minnesota",
+    "mississippi", "missouri", "montana", "nebraska", "nevada",
+    "newhampshire", "newjersey", "newmexico", "newyork", "northcarolina",
+    "northdakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhodeisland",
+    "southcarolina", "southdakota", "tennessee", "texas", "utah", "vermont",
+    "virginia", "washington", "westvirginia", "wisconsin", "wyoming"
   ];

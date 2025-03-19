@@ -109,25 +109,20 @@ function App() {
   }, [currentAttempt]);
 
   useEffect(() => {
-    console.log("all submissions: ", submissions);
-
     const usedLetters = submissions.flatMap((submission) => {
       return submission.map((input) => {
         return input.letter;
       });
     });
-    console.log("usedLetters: ", usedLetters);
 
     setRemainingLetters(
-      alphabetArray.filter((letter) => {
-        return !usedLetters.includes(letter);
-      }).join(" ")
+      alphabetArray
+        .filter((letter) => {
+          return !usedLetters.includes(letter);
+        })
+        .join(" ")
     );
   }, [submissions]);
-
-  useEffect(() => {
-    // console.log(remainingLetters.join(" "));
-  }, [remainingLetters]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
