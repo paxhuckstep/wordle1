@@ -159,9 +159,9 @@ function App() {
     handleResetButtonClick();
   }, []);
 
-  useEffect(() => {
-   console.log(selectedWords)
-  }, [selectedWords]);
+  // useEffect(() => {
+  //  console.log(selectedWords)
+  // }, [selectedWords]);
 
   return (
     <>
