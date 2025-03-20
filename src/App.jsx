@@ -58,7 +58,7 @@ function App() {
       return {
         index: index,
         letter: letter,
-        boxClass:
+        boxClass:   
           letter === correctWord.charAt(index)
             ? "box_green"
             : isYellow
@@ -74,10 +74,10 @@ function App() {
       setIsOpen(true);
       setIsWin(true);
     }
-    setCurrentInputs([]);
+    setCurrentInputs([]);  
   };
 
-  const handleResetButtonClick = () => {
+  const handleNewWord = () => {
     setCorrectWord(
       selectedWords[Math.floor(Math.random() * selectedWords.length)]
     );
@@ -126,7 +126,7 @@ function App() {
 
       if (event.key == "Enter") {
         if (isOpen) {
-          handleResetButtonClick();
+          handleNewWord();
         }
 
         if (currentInputs.length === correctWord.length) {
@@ -156,7 +156,7 @@ function App() {
   }, [currentInputs, correctWord, isOpen]);
 
   useEffect(() => {
-    handleResetButtonClick();
+    handleNewWord();
   }, []);
 
   // useEffect(() => {
@@ -168,7 +168,7 @@ function App() {
       <div className="app">
         <Header
           currentAttempt={currentAttempt}
-          onClick={handleResetButtonClick}
+          handleNewWord={handleNewWord}
           remainingLetters={remainingLetters}
         />
         <div className="app__body">
@@ -192,7 +192,7 @@ function App() {
           isOpen={isOpen}
           isWin={isWin}
           correctWord={correctWord}
-          onClick={handleResetButtonClick}
+          onClick={handleNewWord}
         />
       </div>
     </>

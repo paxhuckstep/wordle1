@@ -1,6 +1,6 @@
 import "./Header.css";
 
-function Header({ currentAttempt, onClick, remainingLetters }) {
+function Header({ currentAttempt, handleNewWord, remainingLetters }) {
   const attemptsLeft = 6 - currentAttempt;
   return (
     <div className="header">
@@ -9,7 +9,7 @@ function Header({ currentAttempt, onClick, remainingLetters }) {
       <p className="header__attempts">
         You have {attemptsLeft} attempts left!
       </p>
-      <button onClick={onClick} className="header__reset-button">New word</button>
+      <button onClick={handleNewWord} className="header__reset-button">New word</button>
       <p className="header__letters-title">Unused letters:</p>
       <p className="header__letters">{remainingLetters}</p>
       </div>
